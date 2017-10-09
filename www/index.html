@@ -28,15 +28,15 @@
                     <a href="" ng-click="menu = 2">Add Product</a>
                 </li>
                 <li class="active">
-                    <a href="">Edit Product</a>
+                    <a href="" ng-click="menu =3">Edit Product</a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div ng-controller="StoreController as s">
+  <div ng-controller="StoreController as s">
         <div ng-show="menu===1" ng-hide="store.view===false" class="container">
             <div ng-repeat="p in s.Product">
-                <h1 ng-click="getUniqueProduct(p._id); store.view=false;">
+                <h1 ng-click="s.getUniqueProduct(p._id); store.view=false;">
                     {{p.name}} {{store.view}}
                 </h1>
                 <em class="pull-right">
@@ -64,7 +64,7 @@
 
                 <div class="form-group; col-xs-8">
                     <label for="name">Name of product:</label>
-                    <input ng-model="store.p.name" type="text" class="form-control" id="name" lass="ng-dirty ng-invalid" required>
+                    <input ng-model="store.p.name" type="text" class="form-control" id="name" class="ng-dirty ng-invalid" required>
                 </div>
                 <div class="form-group; col-xs-4">
                     <label for="price">Price:</label>
@@ -110,7 +110,7 @@
                     <label for="comments">Comments:</label>
                     <textarea ng-model="store.p.comments" type="text" class="form-control" id="comments" cols="12" rows="2" placeholder="Write a short review of the product..."
                         required></textarea>
-                        <br>
+                    <br>
                 </div>
                 <div class="form-group; col-xs-12">
                     <label for="author">Author:</label>
@@ -125,13 +125,18 @@
 
                 <pre>{{productForm.$invalid}}</pre>
             </form>
-             <pre>{{store.p | json}}</pre>
+            <pre>{{store.p | json}}</pre>
+
         </div>
-    </div>
-    <div ng-show="!store.view" class="container">
-        <pre>{{store.product | json }}</pre>
-    </div>
-    <script src="js/app.js"></script>
+        <div ng-show="!store.view" class="container">
+            <pre>{{store.product | json }}</pre>
+        </div>
+
+
+
+    </div> 
+    
+        <script src="js/app.js"></script>
 
 
 </body>
